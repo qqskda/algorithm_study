@@ -1,2 +1,2 @@
 # algorithm_study
-https://www.acmicpc.net/
+https://leetcode.com/bb_vv/
