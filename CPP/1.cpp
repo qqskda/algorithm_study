@@ -1,17 +1,24 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> hashTable;
-        int sigh = nums.size();
-        for (int i = 0; i < nums.size(); ++i){
-            if (hashTable.count(target - nums[i])){
-                // i is the current index
-                // first is the previously recorded ones
-                // this method allows to avoid access same element twice
-                 return {hashTable[target - nums[i]], i};
+        // If there is only one valid answer, and two numbers;
+        // Target - currentNum = needNum -> Check if I have needNum
+        // Since we have to scan if the num exsits every loop -> choose map to have O(lg n)
+        map<int, int> table;
+
+        for (int index = 0; index < nums.size(); ++index){
+            int needNum = target - nums[index];
+            if (table.find(needNum) != table.end()){
+                if (table[needNum] != index){
+                    cout << needNum << nums[index] << endl;
+                    return {table[needNum], index};
+                }
             }
-            hashTable[nums[i]] = i; // if the needNum is not in the hash -> first index
+            table[nums[index]] = index;
         }
-        return {sigh, sigh};
+        return {0,0};
     }
 };
+// Implementation: To avoid returning the same two indices, Compare value with
+// ONly what is in the table (previously checked numbers)
+// That is why in Line 14: index is the second.

@@ -16,3 +16,25 @@ public:
         }
     }
 };
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+
+        int vecSize = nums.size();
+        // two pointer - find non-zero and insert it in slow pos.
+        size_t slow = 0, fast = 0;
+        for (; fast < vecSize; ++fast){
+            if (nums[fast] != 0){
+                nums[slow] = nums[fast];
+                ++slow;
+            }
+        }
+        // slow -> starts of zeros
+        for (; slow < vecSize; ++slow){
+            nums[slow] = 0;
+        }
+
+
+    }
+};
