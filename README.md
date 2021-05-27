@@ -1,2 +1,6 @@
 # algorithm_study
-https://leetcode.com/bb_vv/
+
+
+Algorithm Study Solutions for CPP and Python
+
+Profile: https://leetcode.com/bb_vv/
